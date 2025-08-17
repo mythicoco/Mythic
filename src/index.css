@@ -1,0 +1,99 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    user-select: none;
+}
+:root {
+    --bg-dark: oklch(0.92 0.005 264);
+    --bg: oklch(0.96 0.005 264);
+    --bg-light: oklch(1 0.005 264);
+    --text: oklch(0.15 0.01 264);
+    --text-muted: oklch(0.4 0.01 264);
+    --highlight: oklch(1 0.01 264);
+    --border: oklch(0.6 0.01 264);
+    --border-muted: oklch(0.7 0.01 264);
+    --primary: oklch(0.4 0.1 264);
+    --secondary: oklch(0.4 0.1 84);
+    --danger: oklch(0.5 0.05 30);
+    --warning: oklch(0.5 0.05 100);
+    --success: oklch(0.5 0.05 160);
+    --info: oklch(0.5 0.05 260);
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 95vh;
+    background-color: var(--bg-dark);
+}
+.all {
+    border: 1px solid var(--border);
+    width: 240px;
+    height: 400px;
+    display: grid;
+    grid-template-rows: 1fr 20fr 8fr;
+    padding: 40px 65px;
+    border-radius: 20px;
+    background-color: var(--bg);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+}
+.top {
+    display: flex;
+    align-items: end;
+    justify-content: start;
+    font-size: 19px;
+    color: black;
+}
+.fpau {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+.input {
+    width: 90%;
+    padding: 7px 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    color: black;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+.input:focus {
+    outline: none;
+    border: 1px solid var(--border-muted);
+}
+.title {
+    margin-bottom: 3px;
+    margin-top: 35px;
+    color: black;
+}
+.password {
+    margin-bottom: 10px;
+}
+.Fpassword {
+    color: black;
+    font-size: 13px;
+    cursor: pointer;
+    width: fit-content;
+}
+.signIn {
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    border-radius: 6px;
+    width: 99%;
+    background-color: var(--bg-light);
+    cursor: pointer;
+}
+.google {
+    border: 1px solid var(--border-muted);
+    width: 33%;
+    padding: 5px 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    background-color: var(--bg-light);
+    cursor: pointer;
+}

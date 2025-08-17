@@ -1,0 +1,23 @@
+<html>
+  <body>Finishing sign in...</body>
+  <script type="module">
+    import supabase from '/src/supabaseClient'
+
+    const { data: { session } } = await supabase.auth.getSession()
+    const access_token = session?.access_token
+
+    if (!access_token) {
+      console.error('No session found, redirecting home')
+      location.replace('/')
+      throw new Error('No session')
+    }
+
+    await fetch('/api/set-session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ access_token })
+    })
+
+    location.replace('/todoApp')
+  </script>
+</html>

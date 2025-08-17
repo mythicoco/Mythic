@@ -1,0 +1,57 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    user-select: none;
+}
+:root {
+    --bg-dark: oklch(0.92 0.005 264);
+    --bg: oklch(0.96 0.005 264);
+    --bg-light: oklch(1 0.005 264);
+    --text: oklch(0.15 0.01 264);
+    --text-muted: oklch(0.4 0.01 264);
+    --highlight: oklch(1 0.01 264);
+    --border: oklch(0.6 0.01 264);
+    --border-muted: oklch(0.7 0.01 264);
+    --primary: oklch(0.4 0.1 264);
+    --secondary: oklch(0.4 0.1 84);
+    --danger: oklch(0.5 0.05 30);
+    --warning: oklch(0.5 0.05 100);
+    --success: oklch(0.5 0.05 160);
+    --info: oklch(0.5 0.05 260);
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 95vh;
+    background-color: var(--bg-dark);
+}
+.all {
+    border: 1px solid var(--border);
+    width: 240px;
+    height: 130px;
+    padding: 40px 65px;
+    border-radius: 20px;
+    background-color: var(--bg);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 3px 5px;
+    border-radius: 6px;
+    border: solid;
+}
+.button {
+    margin-top: 10px;
+    padding: 5px 7px;
+    background-color: white;
+    border: solid;
+    border-radius: 12px;
+    cursor: pointer;
+}

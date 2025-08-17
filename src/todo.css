@@ -1,0 +1,182 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    user-select: none;
+}
+:root {
+    --bg-dark: oklch(0.92 0.005 264);
+    --bg: oklch(0.96 0.005 264);
+    --bg-light: oklch(1 0.005 264);
+    --text: oklch(0.15 0.01 264);
+    --text-muted: oklch(0.4 0.01 264);
+    --highlight: oklch(1 0.01 264);
+    --border: oklch(0.6 0.01 264);
+    --border-muted: oklch(0.7 0.01 264);
+    --primary: oklch(0.4 0.1 264);
+    --secondary: oklch(0.4 0.1 84);
+    --danger: oklch(0.5 0.05 30);
+    --warning: oklch(0.5 0.05 100);
+    --success: oklch(0.5 0.05 160);
+    --info: oklch(0.5 0.05 260);
+}
+body {
+    background-color: var(--bg-dark);
+    display: flex;
+    justify-content: center;
+}
+.log-out {
+    position: fixed;
+    padding: 10px 20px;
+    top: 5px;
+    left: 5px;
+    border: solid 1px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: white;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+    font-size: 23px;
+    transition: background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+
+}
+.log-out:hover {
+    background-color: rgba(210, 210, 210, 0.7);
+    box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.1);
+}
+.title {
+    background-color: white;
+    padding: 35px 0px;
+    margin-top: 7px;
+    border-radius: 25px;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+    border: solid 1px rgba(0, 0, 0, 0.1);
+    width: min(400px, 85vw);
+}
+.item {
+    background-color: white;
+    padding: 0px 0px;
+    margin-top: 20px;
+    border: solid 1px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    width: min(400px, 85vw);
+    max-width: calc(400px);
+    justify-content: space-between;
+    overflow-wrap: anywhere;
+    height: 120px;
+}
+.input {
+    padding: 5px 10px;
+    border-radius: 8px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border: solid 1px rgba(0, 0, 0, 0.1);
+    border-right: none;
+    background-color: var(--bg);
+    width: 50%;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+.input:focus {
+    outline: none;
+    border-color: rgba(0, 0, 0, 0.3);
+}
+.addButton {
+    padding: 5px 10px;
+    border: solid 1px rgba(0, 0, 0, 0.1);
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: var(--bg);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.title:focus-within .addButton {
+    border-color: rgba(0, 0, 0, 0.3);
+}
+.title:focus-within .input {
+    border-color: rgba(0, 0, 0, 0.3);
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    border: 2px solid black;
+    padding: 6px;
+    margin-right: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+input[type="checkbox"]:checked {
+    background-color: rgba(31, 220, 38, 0.4);
+}
+.deleteButton {
+    padding: 6px 10px;
+    margin-right: 5px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    overflow-wrap: normal;
+}
+.deleteButton:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+    box-shadow: -2px -2px 3px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 350px) {
+    .log-out {
+        bottom: 5px;
+        top: unset;
+        left: unset;
+        right: 5px;
+        font-size: 30px;
+    }
+}
+.innerItem {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 35% 65%;
+}
+.innerTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    border-bottom: solid 2px rgba(0, 0, 0, 0.7);
+}
+.innerDes {
+    margin-top: 5px;
+}
+.editTitle {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: solid 1px rgba(0, 0, 0, 0.1);
+    font-size: 17px;
+    padding: 2px 4px;
+    border-radius: 4px;
+    margin-left: 4px;
+    cursor: pointer;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    overflow-wrap: normal;
+}
+.titleInput {
+    width: 130px;
+    padding: 4px 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.titleInput:focus {
+    outline: none;
+    border-color: rgba(0, 0, 0, 0.3);
+}
