@@ -170,13 +170,20 @@ input[type="checkbox"]:checked {
     overflow-wrap: normal;
 }
 .titleInput {
-    width: 130px;
-    padding: 4px 8px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 3px;
-    background-color: rgba(0, 0, 0, 0.1);
+    font-size: 27px;
+    border: none;
+    width: 100%;
 }
 .titleInput:focus {
     outline: none;
-    border-color: rgba(0, 0, 0, 0.3);
+}
+.desInput {
+    border: none;
+    font-size: 17px;
+    width: 100%;
+    height: 99%;
+    resize: none;
+}
+.desInput:focus {
+    outline: none;
 }
