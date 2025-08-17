@@ -65,12 +65,13 @@ body {
     border-radius: 12px;
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
     display: flex;
+    flex-direction: column;
     align-items: center;
     width: min(400px, 85vw);
     max-width: calc(400px);
     justify-content: space-between;
     overflow-wrap: anywhere;
-    height: 120px;
+    height: 160px;
 }
 .input {
     padding: 5px 10px;
@@ -112,6 +113,7 @@ input[type="checkbox"] {
     border-radius: 50%;
     cursor: pointer;
     margin-left: 10px;
+    margin-top: 37px;
 }
 
 input[type="checkbox"]:checked {
@@ -127,6 +129,7 @@ input[type="checkbox"]:checked {
     background-color: rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     overflow-wrap: normal;
+    margin-top: 37px;
 }
 .deleteButton:hover {
     background-color: rgba(0, 0, 0, 0.3);
@@ -146,7 +149,7 @@ input[type="checkbox"]:checked {
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-rows: 35% 65%;
+    grid-template-rows: 38% 62%;
 }
 .innerTitle {
     display: flex;
@@ -183,7 +186,15 @@ input[type="checkbox"]:checked {
     width: 100%;
     height: 99%;
     resize: none;
+    border-bottom: solid 2px rgba(0, 0, 0, 0.1);
+    padding-bottom: 4px;
 }
 .desInput:focus {
+    outline: none;
+}
+.dateInput {
+    border: none;
+}
+.dateInput:focus {
     outline: none;
 }
