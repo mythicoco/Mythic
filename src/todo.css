@@ -205,7 +205,9 @@ input[type="checkbox"]:checked {
 }
 .priSel {
     border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 3px;
+    border-radius: 4px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 .priSel:focus {
     outline: none;

@@ -85,6 +85,7 @@ body {
     width: 99%;
     background-color: var(--bg-light);
     cursor: pointer;
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.1);
 }
 .google {
     border: 1px solid var(--border-muted);
@@ -96,4 +97,5 @@ body {
     border-radius: 11px;
     background-color: var(--bg-light);
     cursor: pointer;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
