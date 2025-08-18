@@ -129,7 +129,8 @@ input[type="checkbox"]:checked {
     background-color: rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     overflow-wrap: normal;
-    margin-top: 37px;
+    height: fit-content;
+    margin-top: 22px;
 }
 .deleteButton:hover {
     background-color: rgba(0, 0, 0, 0.3);
@@ -197,4 +198,16 @@ input[type="checkbox"]:checked {
 }
 .dateInput:focus {
     outline: none;
+}
+.pri {
+    margin-top: 5px;
+    margin-bottom: 3px;
+}
+.priSel {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
+.priSel:focus {
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.3);
 }
