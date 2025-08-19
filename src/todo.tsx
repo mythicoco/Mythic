@@ -1,4 +1,4 @@
-import { StrictMode,  useEffect,  useState } from 'react'
+import { StrictMode,  useEffect,  useRef,  useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import Supabase from './supabaseClient'
 import './todo.css'
@@ -13,6 +13,7 @@ function Todo() {
         toggled: boolean
         pri: string
     }
+    const ranRef = useRef(false)
 
     const [list, setList] = useState<TodoItem[]>([])
     const [filter, setFilter] = useState<'All' | 'Active' | 'Completed' | 'Due-Today' | 'Priority'>('All')
@@ -30,6 +31,14 @@ function Todo() {
 
         setList((data?.list ?? []) as TodoItem[])
     })()
+
+        if (ranRef.current) return
+        ranRef.current = true
+
+        let raw = localStorage.getItem('theme')
+        if (!raw) {theme = 'white'; return}
+        theme = JSON.parse(raw)
+        if (theme === 'black') document.body.classList.toggle('dark')
     }, [])
 
 
@@ -63,17 +72,19 @@ function Todo() {
     }
     const priorityOrder: Record<string, number> = { high: 0, med: 1, low: 2 }
     const filteredList = filter === 'Completed' ? list.filter(i => i.toggled) : filter === 'Active' ? list.filter(i => !i.toggled) : filter === 'Due-Today' ?  list.filter(i => i.dueDate === `${new Date().getFullYear()}-${String(Number(new Date().getMonth())+1).padStart(2, '0')}-${String(new Date().getDate()).padStart(2, '0')}`) : filter === 'Priority' ? [...list].sort((a,b) => {return priorityOrder[a.pri] - priorityOrder[b.pri]}) : list
+    let theme:string = 'black'
 
     return <>
         <button className='log-out' onClick={ async () => {await Supabase.auth.signOut(); window.location.reload()}}>Log out</button>
+        <div className='Dmode'><div className='DmodeDiv' onClick={() => {document.body.classList.toggle('dark'); theme = theme === 'black' ? 'white' : 'black'; localStorage.setItem('theme', JSON.stringify(theme)) }}><div className="circle"></div></div>Dark Mode</div>
 
         <div className="title">
             <p>Todo list</p>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr 1fr' }}>
 
                 <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-                    <button style={{ padding: '5px 10px', marginBottom: '5px', backgroundColor: 'rgba(0,0,0,0.1)', border: 'solid 1px rgba(0,0,0,0.1)', boxShadow: '2px 2px 4px rgba(0,0,0,0.1)', borderRadius: '4px', cursor: 'pointer'}} onClick={() => {let newList = list.map(it => ({...it, toggled: true})); setList(newList); saveListToDB(newList)}}>Toggle All</button>
-                    <button style={{ padding: '5px 10px', width: '85px',backgroundColor: 'rgba(0,0,0,0.1)', border: 'solid 1px rgba(0,0,0,0.1)', boxShadow: '2px 2px 4px rgba(0,0,0,0.1)', borderRadius: '6px', cursor: 'pointer'}} onClick={() => {let removedToggled = list.map(it => (it.toggled? "" : it)); let newList = removedToggled.filter(item => item !== ''); setList(newList); saveListToDB(newList)}}>Delete Completed</button>
+                    <button className='buttons' style={{ padding: '5px 10px', marginBottom: '5px', border: 'solid 1px rgba(0,0,0,0.1)', boxShadow: '2px 2px 4px rgba(0,0,0,0.1)', borderRadius: '4px', cursor: 'pointer'}} onClick={() => {let newList = list.map(it => ({...it, toggled: true})); setList(newList); saveListToDB(newList)}}>Toggle All</button>
+                    <button className='buttons' style={{ padding: '5px 10px', width: '85px', border: 'solid 1px rgba(0,0,0,0.1)', boxShadow: '2px 2px 4px rgba(0,0,0,0.1)', borderRadius: '6px', cursor: 'pointer'}} onClick={() => {let removedToggled = list.map(it => (it.toggled? "" : it)); let newList = removedToggled.filter(item => item !== ''); setList(newList); saveListToDB(newList)}}>Delete Completed</button>
                 </div>
 
                 <div className='addTodoInput'>

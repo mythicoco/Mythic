@@ -19,11 +19,27 @@
     --warning: oklch(0.5 0.05 100);
     --success: oklch(0.5 0.05 160);
     --info: oklch(0.5 0.05 260);
+
+    --d-bg-dark: oklch(0.1 0.025 264);
+    --d-bg: oklch(0.15 0.025 264);
+    --d-bg-light: oklch(0.2 0.025 264);
+    --d-text: oklch(0.96 0.05 264);
+    --d-text-muted: oklch(0.76 0.05 264);
+    --d-highlight: oklch(0.5 0.05 264);
+    --d-border: oklch(0.4 0.05 264);
+    --d-border-muted: oklch(0.3 0.05 264);
+    --d-primary: oklch(0.76 0.1 264);
+    --d-secondary: oklch(0.76 0.1 84);
+    --d-danger: oklch(0.7 0.05 30);
+    --d-warning: oklch(0.7 0.05 100);
+    --d-success: oklch(0.7 0.05 160);
+    --d-info: oklch(0.7 0.05 260);
 }
 body {
     background-color: var(--bg-dark);
     display: flex;
     justify-content: center;
+    transition: background-color 0.3s ease-in-out;
 }
 .log-out {
     position: fixed;
@@ -36,7 +52,7 @@ body {
     background-color: white;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
     font-size: 23px;
-    transition: background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.4s ease-in-out, color 0.3s ease-in-out;
 
 }
 .log-out:hover {
@@ -56,6 +72,7 @@ body {
     box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
     border: solid 1px rgba(0, 0, 0, 0.1);
     width: min(400px, 85vw);
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 .item {
     background-color: white;
@@ -72,6 +89,7 @@ body {
     justify-content: space-between;
     overflow-wrap: anywhere;
     height: 160px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 .input {
     padding: 5px 10px;
@@ -84,6 +102,7 @@ body {
     width: 60%;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
     font-size: 16px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 .input:focus {
     outline: none;
@@ -98,6 +117,7 @@ body {
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .addTodoInput:focus-within .addButton {
@@ -133,6 +153,7 @@ input[type="checkbox"]:checked {
     overflow-wrap: normal;
     height: fit-content;
     margin-top: 22px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 .deleteButton:hover {
     background-color: rgba(0, 0, 0, 0.3);
@@ -179,6 +200,7 @@ input[type="checkbox"]:checked {
     font-size: 27px;
     border: none;
     width: 100%;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 .titleInput:focus {
     outline: none;
@@ -191,12 +213,15 @@ input[type="checkbox"]:checked {
     resize: none;
     border-bottom: solid 2px rgba(0, 0, 0, 0.1);
     padding-bottom: 4px;
+    background-color: white;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 .desInput:focus {
     outline: none;
 }
 .dateInput {
     border: none;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 .dateInput:focus {
     outline: none;
@@ -211,6 +236,7 @@ input[type="checkbox"]:checked {
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     padding: 2px 0px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 .priSel:focus {
     outline: none;
@@ -226,8 +252,106 @@ input[type="checkbox"]:checked {
     border-radius: 4px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     padding: 2px 1px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 #filter:focus {
     outline: none;
     border-color: rgba(0, 0, 0, 0.2);
+}
+.Dmode {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease-in-out;
+}
+.DmodeDiv {
+    width: 100px;
+    height: 35px;
+    background-color: white;
+    border-radius: 500px;
+    margin-right: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease-in-out;
+}
+.buttons {
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.circle {
+    background-color: lightgreen;
+    height: 75%;
+    aspect-ratio: 1;
+    border-radius: 1000px;
+    margin-left: 2px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+/* DARK MODE HERE*/ 
+
+body.dark .circle {
+    transform: translateX(66px);
+}
+body.dark {
+    background-color: #333;
+}
+body.dark .title {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+body.dark .DmodeDiv {
+    background-color: rgb(37, 37, 37);
+}
+body.dark .buttons {
+    color: #e0e0e0;
+    background-color: black;
+}
+body.dark .item {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+body.dark .titleInput {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+body.dark .desInput {
+    background-color: #1a1a1a;
+    color: #808080;
+}
+body.dark .log-out {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+body.dark .dateInput {
+    color: #e0e0e0;
+    background-color: #1a1a1a;
+}
+body.dark .deleteButton {
+    color: #e0e0e0;
+    background-color: black;
+}
+body.dark .dateInput::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+body.dark .priSel {
+    background-color: black;
+    color: #e0e0e0;
+}
+body.dark #filter {
+    background-color: black;
+    color: #e0e0e0;
+}
+body.dark .addButton,
+body.dark .input {
+    background-color: black;
+    color: #e0e0e0;
+}
+body.dark .Dmode {
+    color: white;
 }
