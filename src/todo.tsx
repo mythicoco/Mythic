@@ -63,7 +63,40 @@ function Todo() {
 
     return <>
         <button className='log-out' onClick={ async () => {await Supabase.auth.signOut(); window.location.reload()}}>Log out</button>
-        <div className="title"> <p>Todo list</p> <div style={{ display: 'flex', justifyContent: 'center', marginTop: '5px'}}><input className='input' type="text" placeholder='Add to todo list' onKeyDown={e => {e.key === 'Enter' && addToList()}}/><button onClick={() => addToList()} className='addButton'>Add</button></div></div>
+
+        <div className="title">
+            <p>Todo list</p>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr 1fr' }}>
+
+                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+                    <button style={{ padding: '5px 10px', marginBottom: '5px', backgroundColor: 'rgba(0,0,0,0.1)', border: 'solid 1px rgba(0,0,0,0.1)', boxShadow: '2px 2px 4px rgba(0,0,0,0.1)', borderRadius: '4px', cursor: 'pointer'}} onClick={() => {let newList = list.map(it => ({...it, toggled: true})); setList(newList); saveListToDB(newList)}}>Toggle All</button>
+                    <button style={{ padding: '5px 10px', width: '85px',backgroundColor: 'rgba(0,0,0,0.1)', border: 'solid 1px rgba(0,0,0,0.1)', boxShadow: '2px 2px 4px rgba(0,0,0,0.1)', borderRadius: '6px', cursor: 'pointer'}} onClick={() => {let removedToggled = list.map(it => (it.toggled? "" : it)); let newList = removedToggled.filter(item => item !== ''); setList(newList); saveListToDB(newList)}}>Delete Completed</button>
+                </div>
+
+
+                <div className='addTodoInput'>
+                    <input className='input' type="text" placeholder='Add to todo list' onKeyDown={e => {e.key === 'Enter' && addToList()}}/>
+                    <button onClick={() => addToList()} className='addButton'>Add</button>
+                </div>
+
+
+                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+                    <label htmlFor='filter'>filter</label>
+                    <select id="filter">
+                        <option value="All">All</option>
+                        <option value="Active">Active</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Due-Today">Due today</option>
+                        <option value="Priority">Priority</option>
+                    </select>
+                </div>
+
+
+
+            </div>
+        </div>
+
+
         <div className="items">
             {list.map((item, index) => (
                 <div className='item' key={item.id}>
@@ -97,5 +130,5 @@ createRoot(document.getElementById('todoRoot')!).render(
 )
 
 
-// save
+
 
