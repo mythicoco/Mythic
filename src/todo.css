@@ -210,6 +210,7 @@ input[type="checkbox"]:checked {
     border-radius: 4px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+    padding: 2px 0px;
 }
 .priSel:focus {
     outline: none;
@@ -219,4 +220,14 @@ input[type="checkbox"]:checked {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+#filter {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 2px 1px;
+}
+#filter:focus {
+    outline: none;
+    border-color: rgba(0, 0, 0, 0.2);
 }
